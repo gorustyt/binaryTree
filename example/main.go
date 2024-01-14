@@ -13,7 +13,10 @@ func main() {
 		tree.Add(v)
 	}
 	bt.PrintBinaryTree[int](tree.Root, func(node *bt.BinaryTreeNode[int]) string {
-		return fmt.Sprintf("%v", node.GetElement())
+		return fmt.Sprintf("%v", node.GetElement()) //自定义显示值的方法
 	})
 	tree.Remove(9)
+	bt.PrintBinaryTree[int](tree.Root, func(node *bt.BinaryTreeNode[int]) string {
+		return fmt.Sprintf("%v", node.GetElement()) //自定义显示值的方法
+	})
 }
