@@ -1,12 +1,19 @@
 package main
 
+import (
+	"fmt"
+	bt "github.com/gorustyt/binaryTree"
+)
+
 func main() {
 	arr := []int{7, 4, 9, 2, 5, 8, 11, 3, 12, 1}
-	tree := binaryTree.NewBinaryTree()
+
+	tree := bt.NewBinaryTree[int]()
 	for _, v := range arr {
 		tree.Add(v)
 	}
-	tree.TreePrint()
+	bt.PrintBinaryTree[int](tree.Root, func(node *bt.BinaryTreeNode[int]) string {
+		return fmt.Sprintf("%v", node.GetElement())
+	})
 	tree.Remove(9)
-	//tree.TreePrint()
 }
